@@ -1,0 +1,273 @@
+  <!DOCTYPE html>
+  <html>
+  
+  <head>
+    <title>Emptycup Assignment</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  
+  <body>
+  
+    <!-- <div class="container"> -->
+    <div class="d-flex justify-content-between align-items-center mt-4">
+      <img id="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" height="50">
+      <h1 class="text-center flex-grow-1">Emptycup</h1>
+      <img id="dots" src="static/3dots.svg" alt="Three Dots" height="27px" width="27px"
+        style="cursor: pointer; margin-right:35px;">
+    </div>
+    <hr>
+    <div id="contact" style="position: relative; display: inline-block;">
+      <img id="contact2" src="static/contact2.svg" alt="Contact Us" height="22.5px" width="25"
+        style="display: block; margin-left: 20px">
+      <img id="contact1" src="static/contact1.svg" alt="Contact Us" height="11.25px" width="15.625px"
+        style="margin-left: 20px; position: absolute; top: 50%; left: 30%; transform: translate(-50%, -50%);">
+  
+    </div>
+  
+    <div id="gallery" style="position: relative; display: inline-block; margin-left: 30px;">
+      <img id="gallery1" src="static/gallery.svg" alt="Gallery" height="19.5px" width="24px"
+        style="display : block;">
+      <img id="dot" src="static/dot.svg" alt="Dot" height="4.875px" width="4.5px"
+        style="position: absolute; top: 30%; left: 30%; transform: translate(-50%, -50%);">
+    </div>
+    <div id="map" style="position: relative; display: inline-block; margin-left: 30px;">
+      <img src="static/map.svg" alt="Map" height="18.75px" width="18.75px" style="display : block;">
+    </div>
+    <div id="shortlist" style="position: relative; display: inline-block; margin-left: 110px;">
+      <img src="static/shortlist.svg" alt="shortlist" height="28px" width="29px" style="display : block;">
+    </div>
+    <div id="sort" style="position: absolute; display: inline-block; margin-left:20px;">
+      <img src="static/sort.svg" alt="sort" height="25px" width="31px" style="display : block;">
+    </div>
+  
+    <div class="text-container" style="display: flex; align-items: center; margin-top: 6px;">
+      <div style="margin-left: 20px;"></div>
+      <div id="ctext">Contacts</div>
+      <div style="margin-left: 30px;"></div>
+      <div id="gtext">Gallery</div>
+      <div style="margin-left: 38px;"></div>
+      <div id="mtext">Map</div>
+      <div style="margin-left: 110px;"></div>
+      <div id="sltext">Shortlisted</div>
+      <div style="margin-left: 22px;"></div>
+      <div id="stext">Sort</div>
+    </div>
+  
+    <div class="rect-container">
+      {% for data in designers_data %}
+      <div class="dynamic-rect" style="width: autofill; height: 290px; border-top: 0.25px solid #D7D7D7; background: {{ colors[loop.index0] }};">
+        <div class="vertical-line"></div>
+  
+        <div class="icons-container">
+          <div class="icon">
+            <img src="static/arrow.svg" alt="Arrow" height="20" width="20">
+            <div class="icon-text">Details</div>
+          </div>
+          <div class="icon">
+            <img src="static/eye-slash.svg" alt="Eyeslash" height="20" width="20">
+            <div class="icon-text">Hide</div>
+          </div>
+          <div class="icon">
+            <img src="static/shortl.svg" alt="Shortlist" height="20" width="20">
+            <div class="icon-text">Shortlist</div>
+          </div>
+          <div class="icon">
+            <img src="static/report.svg" alt="Report" height="20" width="20">
+            <div class="icon-text">Report</div>
+          </div>
+        </div>
+  
+        <div class="designer-info">
+          <h3 style="font-weight: bold">{{ data.name }}</h3>
+          <div class="star-rating">
+            {% for _ in range(5) %}
+            {% if loop.index <= data.rating %}
+            <span class="star-filled">&#9733;</span>
+            {% else %}
+            <span class="star">&#9733;</span>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <p style="margin-top:15px; font-size:10px">{{ data.description|safe }}</p>
+          <div class="info-line" style="margin-top: 10px; display: flex; font-weight:bold; font-family:Chivo; font-size:24px">
+              <div class="info-item"> {{ data.projects }} </div>
+              <div class="info-item" style="margin-left: 50px;"> {{ data.experience }} </div>
+              <div class="info-item" style="margin-left: 50px;"> {{ data.price }} </div>
+          </div>
+          <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:11px">
+              <div class="info-label">Projects</div>
+              <div class="info-label" style="margin-left: 40px;">Years</div>
+              <div class="info-label" style="margin-left: 40px;">Price</div>
+          </div>
+          <div class="info-line" style="margin-top: 20px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
+              <div class="info-label">{{ data.tel1 }}</div>
+          </div>
+          <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
+              <div class="info-label">{{ data.tel2 }}</div>
+          </div>
+        </div>
+  
+      </div>
+      {% endfor %}
+    </div>
+  
+    <!-- </div> -->
+  
+  </body>
+  <style>
+    h1 {
+      font-family: 'Chivo';
+      font-size: 24px;
+      color: #716966;
+      font-style: normal;
+      font-weight: bold;
+      line-height: normal;
+    }
+  
+    #logo {
+      width: 31px;
+      height: 31px;
+      flex-shrink: 0;
+      margin-left: 20px;
+    }
+  
+    #ctext {
+      color: #E0A64E;
+      font-family: Chivo;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      position: relative;
+    }
+  
+    #gtext {
+      color: #716966;
+      font-family: Chivo;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      position: relative;
+    }
+  
+    #mtext {
+      color: #D0D0D0;
+      font-family: Chivo;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      position: relative;
+    }
+  
+    #sltext {
+      color: #716966;
+      font-family: Chivo;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      position: relative;
+    }
+  
+    #stext {
+      color: #716966;
+      font-family: Chivo;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  
+    .rect-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+  
+    .dynamic-rect {
+      margin-top: 0px;
+      /* Adjust margin-top as needed */
+      position: relative;
+    }
+  
+    .vertical-line::after {
+      content: '';
+      position: absolute;
+      margin-top: 25px;
+      height: 237px;
+      width: 0.25px;
+      background-color: #D0D0D0;
+      /* Color of the vertical line */
+      margin-right: 20%;
+      /* Adjust margin-right as needed */
+      top: 0;
+      right: 0;
+    }
+  
+    .icons-container {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 25px;
+      /* Adjust top space as needed */
+      left: calc(100% - 30px);
+      /* Adjust left space as needed */
+      transform: translateX(-100%);
+    }
+  
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      /* Adjust space between icons as needed */
+    }
+  
+    .icon-text {
+      color: #8D4337;
+      font-family: Chivo;
+      font-size: 8px;
+      margin-top: 7px;
+      /* Adjust space between icon and text as needed */
+    }
+  
+    .designer-info {
+      text-align: left;
+      padding: 20px;
+      color: #000;
+      font-family: Chivo;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  
+    .star-rating {
+      display: flex;
+      align-items: center;
+    }
+  
+    .star {
+        color: #D0D0D0;
+        font-size: 15px;
+        width: 16px;
+        height: 15px;
+        margin-right: 5px;
+    }
+  
+    .star-filled {
+        color: #000;
+        font-size: 15px;
+        width: 16px;
+        height: 15px;
+        margin-right: 5px;
+    }
+  </style>
+  
+  </html>
+  
