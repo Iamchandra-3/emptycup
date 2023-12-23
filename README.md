@@ -1,0 +1,2 @@
+# emptycup
+Assignment for internship
