@@ -1,14 +1,17 @@
-  <!DOCTYPE html>
-  <html>
-  
+<!doctype html>
+<html>
   <head>
     <title>Emptycup Assignment</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
   </head>
-  
+
   <body>
     <script>
       // let shortlisted=false;
@@ -88,6 +91,9 @@
       // shortlistContainer.shortlist_toggled = false;
 
       function toggleShortlistIcon() {
+
+
+
         fetch('/sortlisted', {
             method: 'GET',
             headers: {
@@ -114,158 +120,295 @@
           window.location.href = '/shortl';
       }
     </script>
-  
+
     <!-- <div class="container"> -->
     <div class="d-flex justify-content-between align-items-center mt-4">
-      <img id="logo" src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" height="50">
+      <img
+        id="logo"
+        src="{{ url_for('static', filename='logo.svg') }}"
+        alt="Logo"
+        height="50"
+      />
       <h1 class="text-center flex-grow-1">Emptycup</h1>
-      <img id="dots" src="static/3dots.svg" alt="Three Dots" height="27px" width="27px"
-        style="cursor: pointer; margin-right:35px;">
+      <img
+        id="dots"
+        src="static/3dots.svg"
+        alt="Three Dots"
+        height="27px"
+        width="27px"
+        style="cursor: pointer; margin-right: 35px"
+      />
     </div>
-    <hr>
-    <div id="contact" style="position: relative; display: inline-block;">
-      <img id="contact2" src="static/contact2.svg" alt="Contact Us" height="22.5px" width="25"
-        style="display: block; margin-left: 20px">
-      <img id="contact1" src="static/contact1.svg" alt="Contact Us" height="11.25px" width="15.625px"
-        style="margin-left: 20px; position: absolute; top: 50%; left: 30%; transform: translate(-50%,-50%);">
-  
+    <hr />
+    <div id="contact" style="position: relative; display: inline-block">
+      <img
+        id="contact2"
+        src="static/contact2.svg"
+        alt="Contact Us"
+        height="22.5px"
+        width="25"
+        style="display: block; margin-left: 20px"
+      />
+      <img
+        id="contact1"
+        src="static/contact1.svg"
+        alt="Contact Us"
+        height="11.25px"
+        width="15.625px"
+        style="
+          margin-left: 20px;
+          position: absolute;
+          top: 50%;
+          left: 30%;
+          transform: translate(-50%, -50%);
+        "
+      />
     </div>
-  
-    <div id="gallery" style="position: relative; display: inline-block; margin-left: 30px;">
-      <img id="gallery1" src="static/gallery.svg" alt="Gallery" height="19.5px" width="24px"
-        style="display : block;">
-      <img id="dot" src="static/dot.svg" alt="Dot" height="4.875px" width="4.5px"
-        style="position: absolute; top: 30%; left: 30%; transform: translate(-50%, -50%);">
+
+    <div
+      id="gallery"
+      style="position: relative; display: inline-block; margin-left: 30px"
+    >
+      <img
+        id="gallery1"
+        src="static/gallery.svg"
+        alt="Gallery"
+        height="19.5px"
+        width="24px"
+        style="display: block"
+      />
+      <img
+        id="dot"
+        src="static/dot.svg"
+        alt="Dot"
+        height="4.875px"
+        width="4.5px"
+        style="
+          position: absolute;
+          top: 30%;
+          left: 30%;
+          transform: translate(-50%, -50%);
+        "
+      />
     </div>
-    <div id="map" style="position: relative; display: inline-block; margin-left: 30px;">
-      <img src="static/map.svg" alt="Map" height="18.75px" width="18.75px" style="display : block;">
+    <div
+      id="map"
+      style="position: relative; display: inline-block; margin-left: 30px"
+    >
+      <img
+        src="static/map.svg"
+        alt="Map"
+        height="18.75px"
+        width="18.75px"
+        style="display: block"
+      />
     </div>
-    <div id="shortlist" style="position: relative; display: inline-block; margin-left: 110px;">
+    <div
+      id="shortlist"
+      style="position: relative; display: inline-block; margin-left: 95px"
+    >
+      <a href="/shortl" class="btn btn-white">
         <svg
           id="shortlist-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="29"
           height="28"
           viewBox="0 0 29 28"
-          style="display: block; cursor: pointer;"
+          style="display: block; cursor: pointer"
           onclick="toggleShortlistIcon()"
-          class="shortlist-icon"
         >
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.0625 2.625C9.0625 1.92881 9.34894 1.26113 9.8588 0.768845C10.3687 0.276562 11.0602 0 11.7812 0L17.2188 0C17.9398 0 18.6313 0.276562 19.1412 0.768845C19.6511 1.26113 19.9375 1.92881 19.9375 2.625V4.375C19.9375 5.07119 19.6511 5.73887 19.1412 6.23116C18.6313 6.72344 17.9398 7 17.2188 7H11.7812C11.0602 7 10.3687 6.72344 9.8588 6.23116C9.34894 5.73887 9.0625 5.07119 9.0625 4.375V2.625ZM18.125 2.625C18.125 2.39294 18.0295 2.17038 17.8596 2.00628C17.6896 1.84219 17.4591 1.75 17.2188 1.75H11.7812C11.5409 1.75 11.3104 1.84219 11.1404 2.00628C10.9705 2.17038 10.875 2.39294 10.875 2.625V4.375C10.875 4.60706 10.9705 4.82962 11.1404 4.99372C11.3104 5.15781 11.5409 5.25 11.7812 5.25H17.2188C17.4591 5.25 17.6896 5.15781 17.8596 4.99372C18.0295 4.82962 18.125 4.60706 18.125 4.375V2.625Z" fill="#3A312E" />
-        <path d="M5.4375 2.625H7.25V4.375H5.4375C4.95679 4.375 4.49578 4.55937 4.15587 4.88756C3.81596 5.21575 3.625 5.66087 3.625 6.125V24.5C3.625 24.9641 3.81596 25.4092 4.15587 25.7374C4.49578 26.0656 4.95679 26.25 5.4375 26.25H23.5625C24.0432 26.25 24.5042 26.0656 24.8441 25.7374C25.184 25.4092 25.375 24.9641 25.375 24.5V6.125C25.375 5.66087 25.184 5.21575 24.8441 4.88756C24.5042 4.55937 24.0432 4.375 23.5625 4.375H21.75V2.625H23.5625C24.5239 2.625 25.4459 2.99375 26.1258 3.65013C26.8056 4.3065 27.1875 5.19674 27.1875 6.125V24.5C27.1875 25.4283 26.8056 26.3185 26.1258 26.9749C25.4459 27.6313 24.5239 28 23.5625 28H5.4375C4.47609 28 3.55406 27.6313 2.87424 26.9749C2.19442 26.3185 1.8125 25.4283 1.8125 24.5V6.125C1.8125 5.19674 2.19442 4.3065 2.87424 3.65013C3.55406 2.99375 4.47609 2.625 5.4375 2.625Z" fill="#3A312E" />
-        <path d="M14.5 12.2184C17.516 9.29067 25.0578 14.4129 14.5 20.9999C3.94218 14.4129 11.484 9.29242 14.5 12.2184Z" fill="#3A312E" />
-      </svg>
+          <!-- Add id="heartIcon" to the path element -->
 
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M9.0625 2.625C9.0625 1.92881 9.34894 1.26113 9.8588 0.768845C10.3687 0.276562 11.0602 0 11.7812 0L17.2188 0C17.9398 0 18.6313 0.276562 19.1412 0.768845C19.6511 1.26113 19.9375 1.92881 19.9375 2.625V4.375C19.9375 5.07119 19.6511 5.73887 19.1412 6.23116C18.6313 6.72344 17.9398 7 17.2188 7H11.7812C11.0602 7 10.3687 6.72344 9.8588 6.23116C9.34894 5.73887 9.0625 5.07119 9.0625 4.375V2.625ZM18.125 2.625C18.125 2.39294 18.0295 2.17038 17.8596 2.00628C17.6896 1.84219 17.4591 1.75 17.2188 1.75H11.7812C11.5409 1.75 11.3104 1.84219 11.1404 2.00628C10.9705 2.17038 10.875 2.39294 10.875 2.625V4.375C10.875 4.60706 10.9705 4.82962 11.1404 4.99372C11.3104 5.15781 11.5409 5.25 11.7812 5.25H17.2188C17.4591 5.25 17.6896 5.15781 17.8596 4.99372C18.0295 4.82962 18.125 4.60706 18.125 4.375V2.625Z"
+            fill="#3A312E"
+          />
+          <path
+            d="M5.4375 2.625H7.25V4.375H5.4375C4.95679 4.375 4.49578 4.55937 4.15587 4.88756C3.81596 5.21575 3.625 5.66087 3.625 6.125V24.5C3.625 24.9641 3.81596 25.4092 4.15587 25.7374C4.49578 26.0656 4.95679 26.25 5.4375 26.25H23.5625C24.0432 26.25 24.5042 26.0656 24.8441 25.7374C25.184 25.4092 25.375 24.9641 25.375 24.5V6.125C25.375 5.66087 25.184 5.21575 24.8441 4.88756C24.5042 4.55937 24.0432 4.375 23.5625 4.375H21.75V2.625H23.5625C24.5239 2.625 25.4459 2.99375 26.1258 3.65013C26.8056 4.3065 27.1875 5.19674 27.1875 6.125V24.5C27.1875 25.4283 26.8056 26.3185 26.1258 26.9749C25.4459 27.6313 24.5239 28 23.5625 28H5.4375C4.47609 28 3.55406 27.6313 2.87424 26.9749C2.19442 26.3185 1.8125 25.4283 1.8125 24.5V6.125C1.8125 5.19674 2.19442 4.3065 2.87424 3.65013C3.55406 2.99375 4.47609 2.625 5.4375 2.625Z"
+            fill="#3A312E"
+          />
+          <path
+            d="M14.5 12.2184C17.516 9.29067 25.0578 14.4129 14.5 20.9999C3.94218 14.4129 11.484 9.29242 14.5 12.2184Z"
+            fill="#3A312E"
+          /></svg
+      ></a>
     </div>
 
-
-    <div id="sort" style="position: absolute; display: inline-block; margin-left:20px;">
-      <img src="static/sort.svg" alt="sort" height="25px" width="31px" style="display : block;">
+    <div
+      id="sort"
+      style="position: absolute; display: inline-block; margin-left: 15px; margin-top:10px"
+    >
+      <img
+        src="static/sort.svg"
+        alt="sort"
+        height="25px"
+        width="31px"
+        style="display: block"
+      />
     </div>
-  
-    <div class="text-container" style="display: flex; align-items: center; margin-top: 6px;">
-      <div style="margin-left: 20px;"></div>
+
+    <div
+      class="text-container"
+      style="display: flex; align-items: center; margin-top: 6px"
+    >
+      <div style="margin-left: 20px"></div>
       <div id="ctext">Contacts</div>
-      <div style="margin-left: 30px;"></div>
+      <div style="margin-left: 30px"></div>
       <div id="gtext">Gallery</div>
-      <div style="margin-left: 38px;"></div>
+      <div style="margin-left: 38px"></div>
       <div id="mtext">Map</div>
-      <div style="margin-left: 110px;"></div>
+      <div style="margin-left: 110px"></div>
       <div id="sltext">Shortlisted</div>
-      <div style="margin-left: 22px;"></div>
+      <div style="margin-left: 26px"></div>
       <div id="stext">Sort</div>
     </div>
-  
-    <div class="rect-container">
-      {% if shortlisted_array|length == 0 %}
-          {% set data_array = design_data %}
-      {% else %}
-          {% set data_array = shortlisted_array %}
-      {% endif %}
 
-      
-      {% for data in design_data %}
-      <div class="dynamic-rect" style="width: autofill; height: 290px; border-top: 0.25px solid #D7D7D7; background: {{ colors[loop.index0] }};">
+    <div class="rect-container">
+      {% if shortlisted_array|length == 0 %} {% set data_array = design_data %}
+      {% else %} {% set data_array = shortlisted_array %} {% endif %} {% for
+      data in design_data %}
+      <div
+        class="dynamic-rect"
+        style="width: autofill; height: 290px; border-top: 0.25px solid #D7D7D7; background: {{ colors[loop.index0] }};"
+      >
         <div class="vertical-line"></div>
-  
+
         <div class="icons-container">
           <div class="icon">
-            <img src="static/arrow.svg" alt="Arrow" height="20" width="20">
+            <img src="static/arrow.svg" alt="Arrow" height="20" width="20" />
             <div class="icon-text">Details</div>
           </div>
           <div class="icon">
-            <img src="static/eye-slash.svg" alt="Eyeslash" height="20" width="20">
+            <img
+              src="static/eye-slash.svg"
+              alt="Eyeslash"
+              height="20"
+              width="20"
+            />
             <div class="icon-text">Hide</div>
           </div>
-          <div id="sl" class="icon" onclick="toggleShortlist({{ loop.index0 }})">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" style="cursor: pointer;" viewBox="0 0 18 21" fill="#000">
-              <path d="M1.92436e-07 20.3438C-9.11286e-05 20.4577 0.0323215 20.5697 0.0940478 20.6688C0.155774 20.7678 0.244686 20.8505 0.352032 20.9086C0.459377 20.9668 0.581456 20.9984 0.706251 21.0004C0.831046 21.0024 0.954255 20.9746 1.06375 20.9199L8.625 17.1531L16.1863 20.9199C16.2957 20.9746 16.419 21.0024 16.5437 21.0004C16.6685 20.9984 16.7906 20.9668 16.898 20.9086C17.0053 20.8505 17.0942 20.7678 17.156 20.6688C17.2177 20.5697 17.2501 20.4577 17.25 20.3438V2.625C17.25 1.92881 16.9471 1.26113 16.4079 0.768845C15.8688 0.276562 15.1375 0 14.375 0L2.875 0C2.1125 0 1.38124 0.276562 0.842068 0.768845C0.302901 1.26113 1.92436e-07 1.92881 1.92436e-07 2.625V20.3438ZM8.625 5.78813C10.6188 3.91781 15.6026 7.1925 8.625 11.4017C1.64738 7.1925 6.63119 3.91913 8.625 5.79075V5.78813Z" fill="#8D4337"/>
-            </svg>
+          <div
+            id="sl"
+            class="icon"
+            onclick="toggleShortlist({{ loop.index0 }})"
+          >
+            <a class="btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="21"
+                style="cursor: pointer"
+                viewBox="0 0 18 21"
+                fill="#000"
+              >
+                <path
+                  d="M1.92436e-07 20.3438C-9.11286e-05 20.4577 0.0323215 20.5697 0.0940478 20.6688C0.155774 20.7678 0.244686 20.8505 0.352032 20.9086C0.459377 20.9668 0.581456 20.9984 0.706251 21.0004C0.831046 21.0024 0.954255 20.9746 1.06375 20.9199L8.625 17.1531L16.1863 20.9199C16.2957 20.9746 16.419 21.0024 16.5437 21.0004C16.6685 20.9984 16.7906 20.9668 16.898 20.9086C17.0053 20.8505 17.0942 20.7678 17.156 20.6688C17.2177 20.5697 17.2501 20.4577 17.25 20.3438V2.625C17.25 1.92881 16.9471 1.26113 16.4079 0.768845C15.8688 0.276562 15.1375 0 14.375 0L2.875 0C2.1125 0 1.38124 0.276562 0.842068 0.768845C0.302901 1.26113 1.92436e-07 1.92881 1.92436e-07 2.625V20.3438ZM8.625 5.78813C10.6188 3.91781 15.6026 7.1925 8.625 11.4017C1.64738 7.1925 6.63119 3.91913 8.625 5.79075V5.78813Z"
+                  fill="#8D4337"
+                /></svg
+            ></a>
             <div class="icon-text">Shortlist</div>
           </div>
           <div class="icon">
-            <img src="static/report.svg" alt="Report" height="20" width="20">
+            <img src="static/report.svg" alt="Report" height="20" width="20" />
             <div class="icon-text">Report</div>
           </div>
         </div>
-  
+
         <div class="designer-info">
           <h3 style="font-weight: bold">{{ data.name }}</h3>
           <div class="star-rating">
-            {% for _ in range(5) %}
-            {% if loop.index <= data.rating %}
+            {% for _ in range(5) %} {% if loop.index <= data.rating %}
             <span class="star-filled">&#9733;</span>
             {% else %}
             <span class="star">&#9733;</span>
-            {% endif %}
-            {% endfor %}
+            {% endif %} {% endfor %}
           </div>
-          <p style="margin-top:15px; font-size:10px">{{ data.description|safe }}</p>
-          <div class="info-line" style="margin-top: 10px; display: flex; font-weight:bold; font-family:Chivo; font-size:24px">
-              <div class="info-item"> {{ data.projects }} </div>
-              <div class="info-item" style="margin-left: 50px;"> {{ data.experience }} </div>
-              <div class="info-item" style="margin-left: 50px;"> {{ data.price }} </div>
+          <p style="margin-top: 15px; font-size: 10px">
+            {{ data.description|safe }}
+          </p>
+          <div
+            class="info-line"
+            style="
+              margin-top: 10px;
+              display: flex;
+              font-weight: bold;
+              font-family: Chivo;
+              font-size: 24px;
+            "
+          >
+            <div class="info-item">{{ data.projects }}</div>
+            <div class="info-item" style="margin-left: 50px">
+              {{ data.experience }}
+            </div>
+            <div class="info-item" style="margin-left: 50px">
+              {{ data.price }}
+            </div>
           </div>
-          <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:11px">
-              <div class="info-label">Projects</div>
-              <div class="info-label" style="margin-left: 40px;">Years</div>
-              <div class="info-label" style="margin-left: 40px;">Price</div>
+          <div
+            class="info-line"
+            style="
+              margin-top: 5px;
+              display: flex;
+              font-family: Chivo;
+              font-size: 11px;
+            "
+          >
+            <div class="info-label">Projects</div>
+            <div class="info-label" style="margin-left: 40px">Years</div>
+            <div class="info-label" style="margin-left: 40px">Price</div>
           </div>
-          <div class="info-line" style="margin-top: 20px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
-              <div class="info-label">{{ data.tel1 }}</div>
+          <div
+            class="info-line"
+            style="
+              margin-top: 20px;
+              display: flex;
+              font-family: Chivo;
+              font-size: 16px;
+              color: #000;
+            "
+          >
+            <div class="info-label">{{ data.tel1 }}</div>
           </div>
-          <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
-              <div class="info-label">{{ data.tel2 }}</div>
+          <div
+            class="info-line"
+            style="
+              margin-top: 5px;
+              display: flex;
+              font-family: Chivo;
+              font-size: 16px;
+              color: #000;
+            "
+          >
+            <div class="info-label">{{ data.tel2 }}</div>
           </div>
         </div>
-  
       </div>
       {% endfor %}
     </div>
-  
+
     <!-- </div> -->
-
-
   </body>
   <style>
     h1 {
-      font-family: 'Chivo';
+      font-family: "Chivo";
       font-size: 24px;
       color: #716966;
       font-style: normal;
       font-weight: bold;
       line-height: normal;
     }
-  
+
     #logo {
       width: 31px;
       height: 31px;
       flex-shrink: 0;
       margin-left: 20px;
     }
-  
+
     #ctext {
-      color: #E0A64E;
+      color: #e0a64e;
       font-family: Chivo;
       font-size: 8px;
       font-style: normal;
@@ -273,7 +416,7 @@
       line-height: normal;
       position: relative;
     }
-  
+
     #gtext {
       color: #716966;
       font-family: Chivo;
@@ -283,9 +426,9 @@
       line-height: normal;
       position: relative;
     }
-  
+
     #mtext {
-      color: #D0D0D0;
+      color: #d0d0d0;
       font-family: Chivo;
       font-size: 8px;
       font-style: normal;
@@ -293,7 +436,7 @@
       line-height: normal;
       position: relative;
     }
-  
+
     #sltext {
       color: #716966;
       font-family: Chivo;
@@ -303,7 +446,7 @@
       line-height: normal;
       position: relative;
     }
-  
+
     #stext {
       color: #716966;
       font-family: Chivo;
@@ -312,33 +455,33 @@
       font-weight: 400;
       line-height: normal;
     }
-  
+
     .rect-container {
       display: flex;
       flex-direction: column;
       margin-top: 10px;
     }
-  
+
     .dynamic-rect {
       margin-top: 0px;
       /* Adjust margin-top as needed */
       position: relative;
     }
-  
+
     .vertical-line::after {
-      content: '';
+      content: "";
       position: absolute;
       margin-top: 25px;
       height: 237px;
       width: 0.25px;
-      background-color: #D0D0D0;
+      background-color: #d0d0d0;
       /* Color of the vertical line */
       margin-right: 20%;
       /* Adjust margin-right as needed */
       top: 0;
       right: 0;
     }
-  
+
     .icons-container {
       display: flex;
       flex-direction: column;
@@ -349,7 +492,7 @@
       /* Adjust left space as needed */
       transform: translateX(-100%);
     }
-  
+
     .icon {
       display: flex;
       flex-direction: column;
@@ -357,15 +500,15 @@
       margin-bottom: 20px;
       /* Adjust space between icons as needed */
     }
-  
+
     .icon-text {
-      color: #8D4337;
+      color: #8d4337;
       font-family: Chivo;
       font-size: 8px;
       margin-top: 7px;
       /* Adjust space between icon and text as needed */
     }
-  
+
     .designer-info {
       text-align: left;
       padding: 20px;
@@ -376,28 +519,26 @@
       font-weight: 400;
       line-height: normal;
     }
-  
+
     .star-rating {
       display: flex;
       align-items: center;
     }
-  
+
     .star {
-        color: #D0D0D0;
-        font-size: 15px;
-        width: 16px;
-        height: 15px;
-        margin-right: 5px;
+      color: #d0d0d0;
+      font-size: 15px;
+      width: 16px;
+      height: 15px;
+      margin-right: 5px;
     }
-  
+
     .star-filled {
-        color: #000;
-        font-size: 15px;
-        width: 16px;
-        height: 15px;
-        margin-right: 5px;
+      color: #000;
+      font-size: 15px;
+      width: 16px;
+      height: 15px;
+      margin-right: 5px;
     }
   </style>
-  
-  </html>
-  
+</html>
