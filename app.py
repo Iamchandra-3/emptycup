@@ -60,7 +60,34 @@ design_data = [{
   'price': '$$$',
   'tel1': '+91 - 984532809',
   'tel2': '+91 - 984532818'
-}]
+},
+               {
+                  "id": 6,
+                  'name': 'Integrated Interiors',
+                  'rating': 3,
+                  'description':
+                  'Passionate team of 4 designers working out <br> of Bangalore with an experience of 4 years.',
+                  'projects': 30,
+                  'experience': 2,
+                  'price': '$$$',
+                  'tel1': '+91 - 984532849',
+                  'tel2': '+91 - 984532858'
+               },
+               {
+                    "id": 7,
+                    'name': 'Mansion designs',
+                    'rating': 4,
+                    'description':
+                    'Passionate team of 4 designers working out <br> of Bangalore with an experience of 4 years.',
+                    'projects': 52,
+                    'experience': 4,
+                    'price': '$$$',
+                    'tel1': '+91 - 984532822',
+                    'tel2': '+91 - 984532832'
+
+                 }
+               
+]
 
 num_rectangles = len(design_data)
 colors = ['#FFFCF2' if i % 2 == 0 else '#FFF' for i in range(num_rectangles)]
