@@ -126,7 +126,8 @@ def get_tasks():
 
 @app.route('/shortl',methods=['GET', 'POST'])
 def shortl():
-  return render_template('shortlist.html', shortlisted_array=shortlisted_array,colors=colors,num_rectangles=num_rectangles,)
+  print(shortlisted_array, "shortlisted_array")
+  return render_template('shortlist.html', shortlisted_array=shortlisted_array,colors=colors,num_rectangles=num_rectangles)
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0", debug=True)

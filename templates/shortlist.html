@@ -10,6 +10,20 @@
 </head>
 
 <body>
+  <script>
+
+    function toggleShortlistIcon() {
+    renderShortlistPage();
+
+    }
+    function renderShortlistPage(shortlistData) {
+        // Assuming you have a function to render shortlist.html with data
+        // Modify this according to your rendering logic
+        // This function should display the shortlist page using shortlistData
+        // For simplicity, we are redirecting to /shortl with the shortlisted data
+        window.location.href = '/';
+    }
+  </script>
 
   <!-- <div class="container"> -->
   <div class="d-flex justify-content-between align-items-center mt-4">
@@ -74,63 +88,68 @@
 
   <div class="rect-container">
 
+    {% set unique_shortlist_array = shortlisted_array|unique(attribute='id') %}
     {% for data in shortlisted_array %}
-    <div class="dynamic-rect" style="width: autofill; height: 290px; border-top: 0.25px solid #D7D7D7; background: {{ colors[loop.index0] }};">
-      <div class="vertical-line"></div>
-
-      <div class="icons-container">
-        <div class="icon">
-          <img src="static/arrow.svg" alt="Arrow" height="20" width="20">
-          <div class="icon-text">Details</div>
+    
+    
+      <div class="dynamic-rect" style="width: autofill; height: 290px; border-top: 0.25px solid #D7D7D7; background: {{ colors[loop.index0] }};">
+        <div class="vertical-line"></div>
+  
+        <div class="icons-container">
+          <div class="icon">
+            <img src="static/arrow.svg" alt="Arrow" height="20" width="20">
+            <div class="icon-text">Details</div>
+          </div>
+          <div class="icon">
+            <img src="static/eye-slash.svg" alt="Eyeslash" height="20" width="20">
+            <div class="icon-text">Hide</div>
+          </div>
+          <div id="sl" class="icon" onclick="toggleShortlist({{ loop.index0 }})">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" style="cursor: pointer;" viewBox="0 0 18 21" fill="#000">
+              <path d="M1.92436e-07 20.3438C-9.11286e-05 20.4577 0.0323215 20.5697 0.0940478 20.6688C0.155774 20.7678 0.244686 20.8505 0.352032 20.9086C0.459377 20.9668 0.581456 20.9984 0.706251 21.0004C0.831046 21.0024 0.954255 20.9746 1.06375 20.9199L8.625 17.1531L16.1863 20.9199C16.2957 20.9746 16.419 21.0024 16.5437 21.0004C16.6685 20.9984 16.7906 20.9668 16.898 20.9086C17.0053 20.8505 17.0942 20.7678 17.156 20.6688C17.2177 20.5697 17.2501 20.4577 17.25 20.3438V2.625C17.25 1.92881 16.9471 1.26113 16.4079 0.768845C15.8688 0.276562 15.1375 0 14.375 0L2.875 0C2.1125 0 1.38124 0.276562 0.842068 0.768845C0.302901 1.26113 1.92436e-07 1.92881 1.92436e-07 2.625V20.3438ZM8.625 5.78813C10.6188 3.91781 15.6026 7.1925 8.625 11.4017C1.64738 7.1925 6.63119 3.91913 8.625 5.79075V5.78813Z" fill="#8D4337"/>
+            </svg>
+            <div class="icon-text">Shortlist</div>
+          </div>
+          <div class="icon">
+            <img src="static/report.svg" alt="Report" height="20" width="20">
+            <div class="icon-text">Report</div>
+          </div>
         </div>
-        <div class="icon">
-          <img src="static/eye-slash.svg" alt="Eyeslash" height="20" width="20">
-          <div class="icon-text">Hide</div>
+  
+        <div class="designer-info">
+          <h3 style="font-weight: bold">{{ data.name }}</h3>
+          <div class="star-rating">
+            {% for _ in range(5) %}
+            {% if loop.index <= data.rating %}
+            <span class="star-filled">&#9733;</span>
+            {% else %}
+            <span class="star">&#9733;</span>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <p style="margin-top:15px; font-size:10px">{{ data.description|safe }}</p>
+          <div class="info-line" style="margin-top: 10px; display: flex; font-weight:bold; font-family:Chivo; font-size:24px">
+              <div class="info-item"> {{ data.projects }} </div>
+              <div class="info-item" style="margin-left: 50px;"> {{ data.experience }} </div>
+              <div class="info-item" style="margin-left: 50px;"> {{ data.price }} </div>
+          </div>
+          <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:11px">
+              <div class="info-label">Projects</div>
+              <div class="info-label" style="margin-left: 40px;">Years</div>
+              <div class="info-label" style="margin-left: 40px;">Price</div>
+          </div>
+          <div class="info-line" style="margin-top: 20px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
+              <div class="info-label">{{ data.tel1 }}</div>
+          </div>
+          <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
+              <div class="info-label">{{ data.tel2 }}</div>
+          </div>
         </div>
-        <div id="sl" class="icon" onclick="toggleShortlist({{ loop.index0 }})">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" style="cursor: pointer;" viewBox="0 0 18 21" fill="#000">
-            <path d="M1.92436e-07 20.3438C-9.11286e-05 20.4577 0.0323215 20.5697 0.0940478 20.6688C0.155774 20.7678 0.244686 20.8505 0.352032 20.9086C0.459377 20.9668 0.581456 20.9984 0.706251 21.0004C0.831046 21.0024 0.954255 20.9746 1.06375 20.9199L8.625 17.1531L16.1863 20.9199C16.2957 20.9746 16.419 21.0024 16.5437 21.0004C16.6685 20.9984 16.7906 20.9668 16.898 20.9086C17.0053 20.8505 17.0942 20.7678 17.156 20.6688C17.2177 20.5697 17.2501 20.4577 17.25 20.3438V2.625C17.25 1.92881 16.9471 1.26113 16.4079 0.768845C15.8688 0.276562 15.1375 0 14.375 0L2.875 0C2.1125 0 1.38124 0.276562 0.842068 0.768845C0.302901 1.26113 1.92436e-07 1.92881 1.92436e-07 2.625V20.3438ZM8.625 5.78813C10.6188 3.91781 15.6026 7.1925 8.625 11.4017C1.64738 7.1925 6.63119 3.91913 8.625 5.79075V5.78813Z" fill="#8D4337"/>
-          </svg>
-          <div class="icon-text">Shortlist</div>
-        </div>
-        <div class="icon">
-          <img src="static/report.svg" alt="Report" height="20" width="20">
-          <div class="icon-text">Report</div>
-        </div>
+  
       </div>
-
-      <div class="designer-info">
-        <h3 style="font-weight: bold">{{ data.name }}</h3>
-        <div class="star-rating">
-          {% for _ in range(5) %}
-          {% if loop.index <= data.rating %}
-          <span class="star-filled">&#9733;</span>
-          {% else %}
-          <span class="star">&#9733;</span>
-          {% endif %}
-          {% endfor %}
-        </div>
-        <p style="margin-top:15px; font-size:10px">{{ data.description|safe }}</p>
-        <div class="info-line" style="margin-top: 10px; display: flex; font-weight:bold; font-family:Chivo; font-size:24px">
-            <div class="info-item"> {{ data.projects }} </div>
-            <div class="info-item" style="margin-left: 50px;"> {{ data.experience }} </div>
-            <div class="info-item" style="margin-left: 50px;"> {{ data.price }} </div>
-        </div>
-        <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:11px">
-            <div class="info-label">Projects</div>
-            <div class="info-label" style="margin-left: 40px;">Years</div>
-            <div class="info-label" style="margin-left: 40px;">Price</div>
-        </div>
-        <div class="info-line" style="margin-top: 20px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
-            <div class="info-label">{{ data.tel1 }}</div>
-        </div>
-        <div class="info-line" style="margin-top: 5px; display: flex; font-family: Chivo; font-size:16px; color: #000;">
-            <div class="info-label">{{ data.tel2 }}</div>
-        </div>
-      </div>
-
-    </div>
     {% endfor %}
+    {% set shortlisted_array = [] %}
+    
   </div>
 
   <!-- </div> -->

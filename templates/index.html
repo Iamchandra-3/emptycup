@@ -16,6 +16,7 @@
         var design_data = [
             {% for data in design_data %}
                 {
+                    'id': {{ data.id }},
                     'name': '{{ data.name }}',
                     'rating': {{ data.rating }},
                     'description': '{{ data.description|safe }}',
