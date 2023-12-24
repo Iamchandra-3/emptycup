@@ -88,8 +88,7 @@
 
   <div class="rect-container">
 
-    {% set unique_shortlist_array = shortlisted_array|unique(attribute='id') %}
-    {% for data in shortlisted_array %}
+    {% for data in unique_list %}
     
     
       <div class="dynamic-rect" style="width: autofill; height: 290px; border-top: 0.25px solid #D7D7D7; background: {{ colors[loop.index0] }};">

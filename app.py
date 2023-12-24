@@ -126,8 +126,19 @@ def get_tasks():
 
 @app.route('/shortl',methods=['GET', 'POST'])
 def shortl():
+  seen_ids = set()
+  unique_list = []
+
+  for dictionary in shortlisted_array:
+      current_id = dictionary['id']
+      if current_id not in seen_ids:
+          unique_list.append(dictionary)
+          seen_ids.add(current_id)
+
+  print(unique_list,"uniquelist")
   print(shortlisted_array, "shortlisted_array")
-  return render_template('shortlist.html', shortlisted_array=shortlisted_array,colors=colors,num_rectangles=num_rectangles)
+  return render_template('shortlist.html', unique_list=unique_list,colors=colors,num_rectangles=num_rectangles)
+
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0", debug=True)
